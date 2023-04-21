@@ -6,6 +6,7 @@ const HomePage = lazy(() => import('./pages/HomePage'));
 const TodoListPage = lazy(() => import('./pages/TodoListPage'));
 
 function App() {
+  console.log('TESTING');
   const router = createBrowserRouter([
     {
       path: '/',
