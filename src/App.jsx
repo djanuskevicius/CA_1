@@ -1,7 +1,8 @@
 import { lazy } from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import PageLayout from './pages/PageLayout';
-import SignUpForm from './components/molecules/SignUpForm';
+
+
 
 const HomePage = lazy(() => import('./pages/HomePage'));
 const TodoListPage = lazy(() => import('./pages/TodoListPage'));
@@ -27,7 +28,7 @@ function App() {
   return (
     <>
       {/* <RouterProvider router={router} /> */}
-      <SignUpForm />
+      
     </>
   );
 }
