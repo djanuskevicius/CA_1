@@ -1,8 +1,6 @@
 import { lazy } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import PageLayout from './pages/PageLayout';
-import SignUpForm from './components/molecules/SignUpForm/SignUpForm';
-import AboutApp from './components/molecules/AboutApp/AboutApp';
 
 const HomePage = lazy(() => import('./pages/HomePage'));
 const TodoListPage = lazy(() => import('./pages/TodoListPage'));
