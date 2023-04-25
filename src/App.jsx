@@ -16,25 +16,6 @@ function App() {
       </Routes>
     </BrowserRouter>
   );
-
-  // const router = createBrowserRouter([
-  //   {
-  //     path: '/',
-  //     element: <PageLayout />,
-  //     children: [
-  //       {
-  //         path: '',
-  //         element: <HomePage />,
-  //       },
-  //       {
-  //         path: 'todos',
-  //         element: <TodoListPage />,
-  //       },
-  //     ],
-  //   },
-  // ]);
-
-  // return <RouterProvider router={router} />;
 }
 
 export default App;
