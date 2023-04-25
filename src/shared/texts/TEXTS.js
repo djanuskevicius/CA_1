@@ -1,29 +1,29 @@
 const TEXTS = {
   menu: {
     home: {
-      lt: 'Pagrindinis',
-      en: 'Home',
+      lt: "Pagrindinis",
+      en: "Home",
     },
     todos: {
-      lt: 'Darbų sąrašas',
-      en: 'Todo list',
+      lt: "Darbų sąrašas",
+      en: "Todo list",
     },
     language: {
       lithuanian: {
-        lt: 'Lietuvių',
-        en: 'Lithuanian',
+        lt: "LT",
+        en: "LT",
       },
       english: {
-        lt: 'Anglų',
-        en: 'English',
+        lt: "EN",
+        en: "EN",
       },
     },
   },
   page: {
     homePage: {
       title: {
-        lt: 'TaskMate',
-        en: 'TaskMate',
+        lt: "TaskMate",
+        en: "TaskMate",
       },
       description: {
         paragraph1: {
@@ -31,8 +31,8 @@ const TEXTS = {
           en: 'The "TaskMate" app is a simple and intuitive to-do list application that allows users to create and manage tasks. It has a user-friendly interface that enables new or existing users to log in easily and access their personalized to-do list.',
         },
         paragraph2: {
-          lt: 'Prisijungę vartotojai gali peržiūrėti dabartinį užduočių sąrašą ir greitai pridėti naujas užduotis, atnaujinti esamas užduotis, lengvai pašalinti jas iš sąrašo, kai užduočių nebereikia.',
-          en: 'Once logged in, users can view their current list of tasks and quickly add new ones, update their existing tasks, easily remove it from their list when not needed.',
+          lt: "Prisijungę vartotojai gali peržiūrėti dabartinį užduočių sąrašą ir greitai pridėti naujas užduotis, atnaujinti esamas užduotis, lengvai pašalinti jas iš sąrašo, kai užduočių nebereikia.",
+          en: "Once logged in, users can view their current list of tasks and quickly add new ones, update their existing tasks, easily remove it from their list when not needed.",
         },
         paragraph3: {
           lt: 'Ši "TaskMate" programėlė yra patogus ir efektyvus įrankis visiems, norintiems nepamiršti savo dienotvarkės ir efektyviai valdyti savo kasdienes užduotis.',
@@ -44,8 +44,8 @@ const TEXTS = {
     },
     todoListPage: {
       title: {
-        lt: 'Darbų sąrašo puslapis',
-        en: 'Todo list page',
+        lt: "Darbų sąrašo puslapis",
+        en: "Todo list page",
       },
     },
   },
