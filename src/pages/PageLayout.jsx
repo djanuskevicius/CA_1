@@ -1,8 +1,10 @@
-import { Outlet, Link } from 'react-router-dom';
-import { Suspense } from 'react';
-import TEXTS from '../shared/texts/TEXTS';
-import { useRecoilState } from 'recoil';
-import { languageState } from '../shared/state/atoms';
+import { Outlet, Link } from "react-router-dom";
+import { Suspense } from "react";
+import TEXTS from "../shared/texts/TEXTS";
+import { useRecoilState } from "recoil";
+import { languageState } from "../shared/state/atoms";
+import Header from "../components/molecules/Header";
+import Footer from "../components/molecules/Footer";
 
 const PageLayout = () => {
   const [language, setLanguage] = useRecoilState(languageState);
@@ -11,28 +13,7 @@ const PageLayout = () => {
 
   return (
     <>
-      <header>
-        <nav>
-          <ul>
-            <li>
-              <Link to='/'>{TEXTS.menu.home[language]}</Link>
-            </li>
-            <li>
-              <Link to='/todos'>{TEXTS.menu.todos[language]}</Link>
-            </li>
-            <li>
-              <ul>
-                <li onClick={() => changeLanguage('lt')}>
-                  {TEXTS.menu.language.lithuanian[language]}
-                </li>
-                <li onClick={() => changeLanguage('en')}>
-                  {TEXTS.menu.language.english[language]}
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </nav>
-      </header>
+      <Header></Header>
 
       <main>
         <Suspense fallback={<></>}>
@@ -40,9 +21,7 @@ const PageLayout = () => {
         </Suspense>
       </main>
 
-      <footer>
-        TEST FOOTER
-      </footer>
+      <Footer></Footer>
     </>
   );
 };
