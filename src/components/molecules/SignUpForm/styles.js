@@ -1,9 +1,8 @@
 import styled from 'styled-components';
 
 export const StyledFormContainer = styled.div`
-max-width: 1024px;
-margin: 0 auto;
-
+max-width: 100%;
+  padding: 20px;
 
 `
 
