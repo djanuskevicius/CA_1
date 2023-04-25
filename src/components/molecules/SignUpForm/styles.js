@@ -1,5 +1,12 @@
 import styled from 'styled-components';
 
+export const StyledFormContainer = styled.div`
+max-width: 1024px;
+margin: 0 auto;
+
+
+`
+
 export const StyledForm = styled.form`
   margin: 30px;
   background-color: #ecebeb;
@@ -32,11 +39,20 @@ export const StyledForm = styled.form`
     font-weight: 500;
     cursor: pointer;
   }
+
+  @media screen and (min-width: 768px) {
+    
+    
+  }
+
+  
 `;
 
 export const StyledFormControl = styled.div`
   margin-bottom: 0.75rem;
   text-align: center;
+
+ 
 `;
 
 export const StyledLabel = styled.label`
