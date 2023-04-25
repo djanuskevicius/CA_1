@@ -1,6 +1,7 @@
 import { lazy } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import PageLayout from './pages/PageLayout';
+import ProtectedRoute from './auth/ProtectedRoute/ProtectedRoute';
 
 const HomePage = lazy(() => import('./pages/HomePage'));
 const TodoListPage = lazy(() => import('./pages/TodoListPage'));
@@ -8,10 +9,21 @@ const TodoListPage = lazy(() => import('./pages/TodoListPage'));
 function App() {
   return (
     <BrowserRouter>
+      <nav>
+        <button
+          onClick={() => {
+            window.localStorage.setItem('UserId', 1);
+          }}
+        >
+          Login
+        </button>
+      </nav>
       <Routes>
         <Route path='/' element={<PageLayout />}>
           <Route index element={<HomePage />} />
-          <Route path='todos' element={<TodoListPage />} />
+          <Route element={<ProtectedRoute />}>
+            <Route path='todos' element={<TodoListPage />} />
+          </Route>
         </Route>
       </Routes>
     </BrowserRouter>
