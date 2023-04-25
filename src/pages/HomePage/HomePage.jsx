@@ -8,6 +8,12 @@ const HomePage = () => {
   return (
     <section>
       <AboutApp />
+
+      <div>SignUpForm component displayed on modal or desktop view</div>
+
+      <div>LOG IN BUTTON</div>
+
+      <div>SIGN UP BUTTON</div>
     </section>
   );
 };
