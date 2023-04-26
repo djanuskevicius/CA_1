@@ -5,6 +5,7 @@ import { useRecoilState } from "recoil";
 import { languageState } from "../shared/state/atoms";
 import Header from "../components/molecules/Header";
 import Footer from "../components/molecules/Footer";
+import "../../src/index.css";
 
 const PageLayout = () => {
   const [language, setLanguage] = useRecoilState(languageState);
@@ -12,7 +13,7 @@ const PageLayout = () => {
   const changeLanguage = (lang) => setLanguage(lang);
 
   return (
-    <>
+    <div className="container">
       <Header></Header>
 
       <main>
@@ -22,7 +23,7 @@ const PageLayout = () => {
       </main>
 
       <Footer></Footer>
-    </>
+    </div>
   );
 };
 
