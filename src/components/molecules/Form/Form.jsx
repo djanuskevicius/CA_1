@@ -1,5 +1,11 @@
 import { useState } from 'react';
 
+
+import { languageState } from '../../../shared/state/atoms';
+import { useRecoilValue } from 'recoil'
+import TEXTS from '../../../shared/texts/TEXTS';
+import Box from '../../atoms/Box/Box';
+
 import Input from '../../atoms/Input';
 import Button from '../../atoms/Button';
 import {
@@ -7,6 +13,8 @@ import {
   StyledFormControl,
   StyledLabel,
   StyledErrorMessage,
+  StyledFormContainer,
+  StyledFormControlBtn,
 } from './styles';
 
 const Form = ({ inputs, handleSubmit }) => {
@@ -27,29 +35,42 @@ const Form = ({ inputs, handleSubmit }) => {
     }
   };
 
+  const language = useRecoilValue(languageState);
+
   return (
-    <StyledForm onSubmit={validateSubmit}>
-      {inputs.map((input) => (
+    <StyledFormContainer>
+      <Box><StyledForm onSubmit={validateSubmit}>
+      <h1>{TEXTS.page.signUpForm.title[language]}</h1>
+        
+          {inputs.map((input) => (
+            
         <StyledFormControl key={input.label}>
-          <StyledLabel>{input.label}</StyledLabel>
-          <Input
-            type={input.type}
-            icon={input.icon}
-            value={input.value}
-            setValue={input.setValue}
-            placeholder={input.placeholder}
-            color='secondary'
-          />
-          {notValid.find((x) => x.label === input.label) && (
-            <StyledErrorMessage>{input.errorMessage}</StyledErrorMessage>
-          )}
-        </StyledFormControl>
-      ))}
-      <StyledFormControl>
-        <Button color='info' action={() => {}} text='Sign up' type='submit' />
+        <StyledLabel>{input.label}</StyledLabel>
+        <Input
+          type={input.type}
+          icon={input.icon}
+          value={input.value}
+          setValue={input.setValue}
+          placeholder={input.placeholder}
+          color='secondary'
+        />
+        {notValid.find((x) => x.label === input.label) && (
+          <StyledErrorMessage>{input.errorMessage}</StyledErrorMessage>
+        )}
       </StyledFormControl>
-    </StyledForm>
+    ))}
+    <StyledFormControlBtn>
+      <Button color='info' action={() => {}} text={TEXTS.page.signUpForm.button[language]} type='submit' />
+    </StyledFormControlBtn>
+  </StyledForm>
+    </Box>
+      </StyledFormContainer>
+    
   );
 };
 
 export default Form;
+
+
+
+  

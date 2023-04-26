@@ -25,6 +25,7 @@ export const StyledButton = styled.button`
       : props.outline
       ? props.theme.palette.dark.main
       : props.theme.palette.light.main};
+      
   font-size: 1rem;
   line-height: 1.5;
 

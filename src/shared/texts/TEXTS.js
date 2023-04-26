@@ -50,16 +50,16 @@ const TEXTS = {
         lt: 'Vardas',
         en: 'Name',
         placeholder: {
-          lt: 'Vardas...',
-          en: 'Name...',
+          lt: 'Įveskite vardą...',
+          en: 'Enter your name...',
         }
       },
       surname: {
         lt: 'Pavardė',
         en: 'Surname',
         placeholder: {
-          lt: 'Pavardė...',
-          en: 'Surname...',
+          lt: 'Įveskite pavardę...',
+          en: 'Enter your surname...',
         }
       },
       email: {
@@ -74,9 +74,13 @@ const TEXTS = {
         lt: 'Slaptažodis',
         en: 'Password',
         placeholder: {
-          lt: 'Slaptažodis...',
-          en: 'Password...',
+          lt: 'Įveskite slaptažodį...',
+          en: 'Enter your password...',
         }
+      },
+      required: {
+        lt: 'Privaloma',
+        en: 'Required',
       },
       button: {
         lt: 'Registruotis',
