@@ -1,23 +1,29 @@
 import { useState } from "react";
+import LogInForm from "../LogInForm/LogInForm";
+import Button from "../../atoms/Button";
+import Modal from "../../molecules/Modal/Modal";
+import { languageState } from "../../../shared/state/atoms";
+import { useRecoilValue } from "recoil";
+import TEXTS from "../../../shared/texts/TEXTS";
 
-const LogInButton = ({ text }) => {
-  const [showLogInForm, setShowLogInForm] = useState(false);
-
-  const handleButtonClick = () => {
-    setShowLogInForm(true);
-  };
-
+const LogInButton = () => {
+  const [isLogInFormOpen, setIsLogInFormOpen] = useState(false);
+  const openLogInFormModal = () => setIsLogInFormOpen(true);
+  const closeLogInFormModal = () => setIsLogInFormOpen(false);
+  const language = useRecoilValue(languageState);
   return (
     <div>
-      {!showLogInForm && (
-        <button color="primary" onClick={handleButtonClick}>
-          Log In
-        </button>
+      <Button
+        text={TEXTS.page.LogInForm.title[language]}
+        color="info"
+        action={openLogInFormModal}
+      />
+      {isLogInFormOpen && (
+        <Modal onClose={closeLogInFormModal}>
+          <LogInForm closeModal={closeLogInFormModal} />
+        </Modal>
       )}
-
-      {showLogInForm && <LogInForm />}
     </div>
   );
 };
-
 export default LogInButton;
