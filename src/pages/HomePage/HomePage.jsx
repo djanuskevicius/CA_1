@@ -2,6 +2,8 @@ import TEXTS from '../../shared/texts/TEXTS';
 import { useRecoilValue } from 'recoil';
 import { languageState } from '../../shared/state/atoms';
 import AboutApp from '../../components/molecules/AboutApp/AboutApp';
+import SignUpForm from '../../components/organisms/SignUpForm/SignUpForm';
+SignUpForm
 
 const HomePage = () => {
   const language = useRecoilValue(languageState);
@@ -9,7 +11,7 @@ const HomePage = () => {
     <section>
       <AboutApp />
 
-      <div>SignUpForm component displayed on modal or desktop view</div>
+      <div><SignUpForm/></div>
 
       <div>LOG IN BUTTON</div>
 

@@ -1,10 +1,37 @@
 import styled from 'styled-components';
 
-export const StyledForm = styled.form``;
+export const StyledFormContainer = styled.div`
+max-width: 100%;
+  padding: 20px;
+
+`
+
+export const StyledForm = styled.form`
+h1 {
+    text-align: center;
+    font-size: 1.5em;
+  }
+`;
 
 export const StyledFormControl = styled.div`
   margin-bottom: 0.75rem;
+  
+button{
+  text-align: center;
+}
+  
 `;
+
+export const StyledFormControlBtn = styled.div`
+  margin-bottom: 0.75rem;
+  text-align: center;
+  
+button{
+  width: 50%;
+}
+  
+`;
+
 
 export const StyledLabel = styled.label`
   margin-bottom: 0.5rem;

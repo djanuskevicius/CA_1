@@ -24,6 +24,7 @@ a,
 button,
 input {
   font-family: var(--font-family);
+  
 }
 
 @media (prefers-color-scheme: light) {

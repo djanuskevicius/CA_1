@@ -2,6 +2,7 @@ import { lazy } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import PageLayout from './pages/PageLayout';
 
+
 const HomePage = lazy(() => import('./pages/HomePage'));
 const TodoListPage = lazy(() => import('./pages/TodoListPage'));
 
@@ -15,6 +16,9 @@ function App() {
         </Route>
       </Routes>
     </BrowserRouter>
+
+    
+    
   );
 }
 
