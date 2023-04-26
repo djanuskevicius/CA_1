@@ -9,15 +9,6 @@ const TodoListPage = lazy(() => import('./pages/TodoListPage'));
 function App() {
   return (
     <BrowserRouter>
-      <nav>
-        <button
-          onClick={() => {
-            window.localStorage.setItem('UserId', 1);
-          }}
-        >
-          Login
-        </button>
-      </nav>
       <Routes>
         <Route path='/' element={<PageLayout />}>
           <Route index element={<HomePage />} />

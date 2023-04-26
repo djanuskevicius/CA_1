@@ -18,13 +18,11 @@ const ProtectedRoute = () => {
   }, []);
 
   if (isLoading) {
-    return <div>Loading...</div>; // Show loading indicator
+    return <div>Loading...</div>;
   }
 
   const storedUserId = localStorage.UserId;
-  console.log('Stored user ID:', storedUserId);
   const isAuthenticated = userId !== null && parseInt(storedUserId) === userId;
-  console.log('Is authenticated:', isAuthenticated);
 
   return isAuthenticated ? <Outlet /> : <Navigate to='/' />;
 };
