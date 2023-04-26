@@ -1,22 +1,25 @@
-import TEXTS from '../../shared/texts/TEXTS';
-import { useRecoilValue } from 'recoil';
-import { languageState } from '../../shared/state/atoms';
-import AboutApp from '../../components/molecules/AboutApp/AboutApp';
-import SignUpForm from '../../components/organisms/SignUpForm/SignUpForm';
-SignUpForm
+import TEXTS from "../../shared/texts/TEXTS";
+import { useRecoilValue } from "recoil";
+import { languageState } from "../../shared/state/atoms";
+import AboutApp from "../../components/molecules/AboutApp/AboutApp";
+import SignUpForm from "../../components/organisms/SignUpForm/SignUpForm";
+SignUpForm;
+import { StyledSection } from "./styles";
 
 const HomePage = () => {
   const language = useRecoilValue(languageState);
   return (
-    <section>
+    <StyledSection>
       <AboutApp />
 
-      <div><SignUpForm/></div>
+      <div>
+        <SignUpForm />
+      </div>
 
       <div>LOG IN BUTTON</div>
 
       <div>SIGN UP BUTTON</div>
-    </section>
+    </StyledSection>
   );
 };
 
