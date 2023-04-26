@@ -3,8 +3,8 @@ import { useRecoilValue } from "recoil";
 import { languageState } from "../../shared/state/atoms";
 import AboutApp from "../../components/molecules/AboutApp/AboutApp";
 import SignUpForm from "../../components/organisms/SignUpForm/SignUpForm";
-SignUpForm;
 import { StyledSection } from "./styles";
+import SignUpButton from "../../components/organisms/SignUpButton/SignUpButton";
 
 const HomePage = () => {
   const language = useRecoilValue(languageState);
@@ -18,8 +18,12 @@ const HomePage = () => {
 
       <div>LOG IN BUTTON</div>
 
-      <div>SIGN UP BUTTON</div>
-    </StyledSection>
+
+    
+      <div>
+        <SignUpButton />
+      </div>
+</StyledSection>
   );
 };
 
