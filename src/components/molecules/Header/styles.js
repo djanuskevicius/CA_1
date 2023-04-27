@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const StyledHeader = styled.div`
   width: 100%;
@@ -24,4 +24,9 @@ export const StyledLogo = styled.div`
 export const StyledSelector = styled.div`
   width: 60px;
   height: 60px;
+`;
+
+export const StyledContainer = styled.div`
+  display: flex;
+  gap: 10px;
 `;
