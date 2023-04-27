@@ -1,8 +1,15 @@
 import styled from "styled-components";
 
 export const StyledContainer = styled.div`
-  max-width: 100%;
+  
   padding: 20px;
+
+  @media screen and (min-width:1024px) {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  
 
   h1,
   p {

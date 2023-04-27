@@ -14,8 +14,10 @@ export const StyledIcon = styled.span`
 `;
 
 export const StyledInput = styled.input`
+  background-color: transparent;
   outline: none;
   border: none;
+  padding: 10px;
   padding-left: calc(0.75em - 1px);
   font-size: 1rem;
   line-height: 1.5;
