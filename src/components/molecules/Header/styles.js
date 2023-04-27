@@ -2,11 +2,12 @@ import styled from "styled-components";
 
 export const StyledHeader = styled.div`
   width: 100%;
-  background-color: #a393eb;
+  background-color: ${({ theme }) => theme.palette.purple.dark};
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px;
+  color: ${({ theme }) => theme.palette.purple.light};
 `;
 
 export const StyledLogo = styled.div`

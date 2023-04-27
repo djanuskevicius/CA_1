@@ -1,30 +1,38 @@
 const TEXTS = {
   menu: {
     home: {
-      lt: "Pagrindinis",
-      en: "Home",
+      lt: 'Pagrindinis',
+      en: 'Home',
     },
-    
+
     todos: {
-      lt: "Darbų sąrašas",
-      en: "Todo list",
+      lt: 'Darbų sąrašas',
+      en: 'Todo list',
+    },
+    login: {
+      lt: 'Prisijungti',
+      en: 'Log In',
+    },
+    logout: {
+      lt: 'Atsijungti',
+      en: 'Log Out',
     },
     language: {
       lithuanian: {
-        lt: "LT",
-        en: "LT",
+        lt: 'LT',
+        en: 'LT',
       },
       english: {
-        lt: "EN",
-        en: "EN",
+        lt: 'EN',
+        en: 'EN',
       },
     },
   },
   page: {
     homePage: {
       title: {
-        lt: "TaskMate",
-        en: "TaskMate",
+        lt: 'TaskMate',
+        en: 'TaskMate',
       },
       description: {
         paragraph1: {
@@ -32,8 +40,8 @@ const TEXTS = {
           en: 'The "TaskMate" app is a simple and intuitive to-do list application that allows users to create and manage tasks. It has a user-friendly interface that enables new or existing users to log in easily and access their personalized to-do list.',
         },
         paragraph2: {
-          lt: "Prisijungę vartotojai gali peržiūrėti dabartinį užduočių sąrašą ir greitai pridėti naujas užduotis, atnaujinti esamas užduotis, lengvai pašalinti jas iš sąrašo, kai užduočių nebereikia.",
-          en: "Once logged in, users can view their current list of tasks and quickly add new ones, update their existing tasks, easily remove it from their list when not needed.",
+          lt: 'Prisijungę vartotojai gali peržiūrėti dabartinį užduočių sąrašą ir greitai pridėti naujas užduotis, atnaujinti esamas užduotis, lengvai pašalinti jas iš sąrašo, kai užduočių nebereikia.',
+          en: 'Once logged in, users can view their current list of tasks and quickly add new ones, update their existing tasks, easily remove it from their list when not needed.',
         },
         paragraph3: {
           lt: 'Ši "TaskMate" programėlė yra patogus ir efektyvus įrankis visiems, norintiems nepamiršti savo dienotvarkės ir efektyviai valdyti savo kasdienes užduotis.',
@@ -52,7 +60,7 @@ const TEXTS = {
         placeholder: {
           lt: 'Įveskite vardą...',
           en: 'Enter your name...',
-        }
+        },
       },
       surname: {
         lt: 'Pavardė',
@@ -60,7 +68,7 @@ const TEXTS = {
         placeholder: {
           lt: 'Įveskite pavardę...',
           en: 'Enter your surname...',
-        }
+        },
       },
       email: {
         lt: 'El. Paštas',
@@ -68,7 +76,7 @@ const TEXTS = {
         placeholder: {
           lt: 'pavizdys@pavizdys.com',
           en: 'example@example.com',
-        }
+        },
       },
       password: {
         lt: 'Slaptažodis',
@@ -76,7 +84,7 @@ const TEXTS = {
         placeholder: {
           lt: 'Įveskite slaptažodį...',
           en: 'Enter your password...',
-        }
+        },
       },
       required: {
         lt: 'Privaloma',
@@ -86,7 +94,6 @@ const TEXTS = {
         lt: 'Registruotis',
         en: 'Sign Up',
       },
-      
     },
 
     loginForm: {
@@ -106,10 +113,9 @@ const TEXTS = {
 
     todoListPage: {
       title: {
-        lt: "Darbų sąrašo puslapis",
-        en: "Todo list page",
+        lt: 'Darbų sąrašo puslapis',
+        en: 'Todo list page',
       },
-      
     },
   },
 };
