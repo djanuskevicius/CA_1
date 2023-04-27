@@ -11,7 +11,7 @@ const ProtectedRoute = () => {
       .get('http://localhost:8000/users')
       .then(({ data }) => {
         console.log(data);
-        setUserId(data[0].id);
+        setUserId(data.map((x) => x.id));
       })
       .catch((error) => console.log(error))
       .finally(() => setIsLoading(false));
@@ -21,7 +21,9 @@ const ProtectedRoute = () => {
     return <div>Loading...</div>;
   }
 
-  const storedUserId = localStorage.UserId;
+  const storedUserId = localStorage.userId;
+  console.log(storedUserId);
+  console.log(userId);
   const isAuthenticated = userId !== null && parseInt(storedUserId) === userId;
 
   return isAuthenticated ? <Outlet /> : <Navigate to='/' />;
