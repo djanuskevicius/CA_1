@@ -1,7 +1,7 @@
 import TEXTS from '../../shared/texts/TEXTS';
 import { useRecoilValue } from 'recoil';
 import { languageState } from '../../shared/state/atoms';
-import { StyledSection, StyledHeadline } from './styles';
+import { StyledSection, StyledHeadline, StyledTodosContainer } from './styles';
 import LogOutButton from '../../components/organisms/LogOutButton';
 import TodoCard from '../../components/atoms/TodoCard';
 
@@ -12,7 +12,10 @@ const TodoListPage = () => {
     <StyledSection>
       <StyledHeadline>{TEXTS.page.todoListPage.title[language]}</StyledHeadline>
 
-      <TodoCard />
+      <StyledTodosContainer>
+        <TodoCard />
+      </StyledTodosContainer>
+
     </StyledSection>
   );
 };
