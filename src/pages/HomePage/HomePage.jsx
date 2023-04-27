@@ -1,4 +1,4 @@
-import TEXTS from '../../shared/texts/TEXTS';
+
 import { useRecoilValue } from 'recoil';
 import { languageState } from '../../shared/state/atoms';
 import AboutApp from '../../components/molecules/AboutApp/AboutApp';
@@ -11,6 +11,8 @@ const HomePage = () => {
   return (
     <StyledSection>
       <AboutApp />
+      
+      
 
       <div>
         <SignUpForm />

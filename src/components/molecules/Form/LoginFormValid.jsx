@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import axios from 'axios';
 
 
 import { languageState } from '../../../shared/state/atoms';
@@ -17,7 +18,8 @@ import {
   StyledFormControlBtn,
 } from './styles';
 
-const Form = ({ inputs, handleSubmit }) => {
+const LoginFormValid = ({ inputs, handleSubmit }) => {
+    
   const [notValid, setNotValid] = useState([]);
 
   const validateSubmit = (e) => {
@@ -27,11 +29,27 @@ const Form = ({ inputs, handleSubmit }) => {
     const NotValid = inputs.filter((input) =>
       !input.required ? false : input.value ? false : true
     );
-    
+
     if (!NotValid.length) {
       setNotValid([]);
       
-      handleSubmit();
+      
+
+      const email = inputs.find((input) => input.type === 'email').value;
+
+      axios.get(`http://localhost:8000/users?email=${email}`)
+        .then((response) => {
+            
+          if (response.data.length === 0) {
+            alert(`${TEXTS.page.loginForm.validate[language]}`)
+          } else {
+            handleSubmit();
+          }
+         
+        })
+        .catch((error) => console.log(error))
+
+    
     } else {
       setNotValid(NotValid);
     }
@@ -42,7 +60,7 @@ const Form = ({ inputs, handleSubmit }) => {
   return (
     <StyledFormContainer>
       <Box><StyledForm onSubmit={validateSubmit}>
-      <h1>{TEXTS.page.signUpForm.title[language]}</h1>
+      <h1>{TEXTS.page.loginForm.title[language]}</h1>
         
           {inputs.map((input) => (
             
@@ -62,7 +80,7 @@ const Form = ({ inputs, handleSubmit }) => {
       </StyledFormControl>
     ))}
     <StyledFormControlBtn>
-      <Button color='info' action={() => {}} text={TEXTS.page.signUpForm.button[language]} type='submit' />
+      <Button color='info' action={() => {}} text={TEXTS.page.loginForm.button[language]} type='submit' />
     </StyledFormControlBtn>
   </StyledForm>
     </Box>
@@ -71,8 +89,4 @@ const Form = ({ inputs, handleSubmit }) => {
   );
 };
 
-export default Form;
-
-
-
-  
+export default LoginFormValid;
