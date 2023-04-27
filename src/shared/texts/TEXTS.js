@@ -88,6 +88,22 @@ const TEXTS = {
       },
       
     },
+
+    loginForm: {
+      title: {
+        lt: 'Prisijungimas',
+        en: 'Login',
+      },
+      button: {
+        lt: 'Prisijungti',
+        en: 'Login',
+      },
+      validate: {
+        lt: 'Vartotojas neegzistuoja',
+        en: 'The user does not exist',
+      },
+    },
+
     todoListPage: {
       title: {
         lt: "Darbų sąrašo puslapis",
