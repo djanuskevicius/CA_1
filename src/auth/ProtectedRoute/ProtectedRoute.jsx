@@ -10,8 +10,7 @@ const ProtectedRoute = () => {
     axios
       .get('http://localhost:8000/users')
       .then(({ data }) => {
-        console.log(data);
-        setUserId(data[0].id);
+        setUserId(data.map((x) => x.id));
       })
       .catch((error) => console.log(error))
       .finally(() => setIsLoading(false));
@@ -21,8 +20,9 @@ const ProtectedRoute = () => {
     return <div>Loading...</div>;
   }
 
-  const storedUserId = localStorage.UserId;
-  const isAuthenticated = userId !== null && parseInt(storedUserId) === userId;
+  const storedUserId = localStorage.userId;
+  const isAuthenticated =
+    userId !== null && userId.includes(parseInt(storedUserId));
 
   return isAuthenticated ? <Outlet /> : <Navigate to='/' />;
 };
