@@ -3,7 +3,6 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import PageLayout from './pages/PageLayout';
 import ProtectedRoute from './auth/ProtectedRoute/ProtectedRoute';
 
-
 const HomePage = lazy(() => import('./pages/HomePage'));
 const TodoListPage = lazy(() => import('./pages/TodoListPage'));
 
@@ -19,9 +18,6 @@ function App() {
         </Route>
       </Routes>
     </BrowserRouter>
-
-    
-    
   );
 }
 
