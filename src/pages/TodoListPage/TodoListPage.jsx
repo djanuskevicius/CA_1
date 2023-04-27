@@ -1,7 +1,8 @@
-import TEXTS from "../../shared/texts/TEXTS";
-import { useRecoilValue } from "recoil";
-import { languageState } from "../../shared/state/atoms";
-import { StyledSection } from "./styles";
+import TEXTS from '../../shared/texts/TEXTS';
+import { useRecoilValue } from 'recoil';
+import { languageState } from '../../shared/state/atoms';
+import { StyledSection } from './styles';
+import LogOutButton from '../../components/organisms/LogOutButton';
 
 const TodoListPage = () => {
   const language = useRecoilValue(languageState);
