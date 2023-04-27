@@ -20,11 +20,8 @@ export const StyledTodosContainer = styled.div`
   justify-content: center;
   gap: 20px;
 
-  @media screen and (min-width: 630px) {
-    align-items: center;
-  }
-
   @media screen and (min-width: 1000px) {
     flex-direction: row;
+    align-items: center;
   }
 `;

@@ -15,25 +15,7 @@
       "surname": "Smith",
       "email": "john@email.com",
       "password": "password123",
-      "todos": [
-        1
-      ]
-    },
-    {
-      "name": "ooga",
-      "surname": "booga",
-      "email": "a@a",
-      "password": "a",
-      "todos": [],
-      "id": 2
-    },
-    {
-      "name": "Eim",
-      "surname": "asd",
-      "email": "asd@asd.lt",
-      "password": "987",
-      "todos": [],
-      "id": 3
+      "todos": [1]
     }
   ]
 }
