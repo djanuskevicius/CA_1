@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import ICONS from "../../../shared/icons";
 import {
   StyledTodoCard,
-  StyledTodoIcon,
-  StyledTodoHeader,
-  StyledTodoDescription,
+  StyledTodoIcon, StyledTodoTitleSection,
+  StyledTodoTitle, StyledTodoDescriptionSection,
+  StyledTodoDescription, StyledTextButtons, StyledDescriptionButtons
 } from "./styles";
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
@@ -26,15 +26,36 @@ const TodoCard = () => {
     }
   };
 
+  const [expandedTodoId, setExpandedTodoId] = useState(null);
+
+  const toggleAccordion = (id) => {
+    setExpandedTodoId((prev) => (prev === id ? null : id));
+  };
+
   return (
     <div>
       {todos?.map((todo) => (
         <StyledTodoCard key={todo.id}>
-          <StyledTodoIcon>{getIcon(todo.status)}</StyledTodoIcon>
-          <div>
-            <StyledTodoHeader>{todo.title}</StyledTodoHeader>
-            <StyledTodoDescription>{todo.description}</StyledTodoDescription>
-          </div>
+          <StyledTodoTitleSection>
+            <StyledTodoIcon>{getIcon(todo.status)}</StyledTodoIcon>
+            <StyledTodoTitle onClick={() => toggleAccordion(todo.id)}>
+              {todo.title}
+            </StyledTodoTitle>
+          </StyledTodoTitleSection>
+          <StyledTodoDescriptionSection>
+            {expandedTodoId === todo.id && (
+              <StyledTodoDescription>
+                <StyledTextButtons>
+                  <li>{todo.description}</li>
+                  <StyledDescriptionButtons>
+                    <button>Update</button>
+                    <button>Delete</button>
+                    <button>Complete</button>
+                  </StyledDescriptionButtons>
+                </StyledTextButtons>
+              </StyledTodoDescription>
+            )}
+          </StyledTodoDescriptionSection>
         </StyledTodoCard>
       ))}
     </div>
