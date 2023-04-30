@@ -11,6 +11,7 @@ const TodoAddForm = () => {
     title: "",
     description: "",
     status: "",
+    userId: "",
   });
 
   const [successMessage, setSuccessMessage] = useState("");
@@ -33,12 +34,18 @@ const TodoAddForm = () => {
       required: true,
     },
     {
-      type: "checkbox",
+      type: "text",
       label: "Status",
+      placeholder: "Status",
+      value: todo.status,
+      setValue: (value) => setTodo((prev) => ({ ...prev, status: value })),
+      required: true,
     },
   ];
 
   const handleSubmit = () => {
+    todo["userId"] = parseInt(localStorage.userId);
+
     axios
       .post("http://localhost:8000/todos", todo)
       .then((response) => {
