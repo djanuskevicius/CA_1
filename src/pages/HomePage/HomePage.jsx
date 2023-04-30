@@ -5,6 +5,7 @@ import AboutApp from "../../components/molecules/AboutApp/AboutApp";
 import SignUpForm from "../../components/organisms/SignUpForm/SignUpForm";
 import { StyledSection, StyledAboutSignUpContainer } from "./styles";
 import SignUpButton from "../../components/organisms/SignUpButton/SignUpButton";
+import LogInButton from '../../components/organisms/LogInButton/'
 
 const HomePage = () => {
   const language = useRecoilValue(languageState);
@@ -16,9 +17,8 @@ const HomePage = () => {
       </StyledAboutSignUpContainer>
 
 
-      <div>LOG IN BUTTON</div>
-
       <div>
+        <LogInButton />
         <SignUpButton />
       </div>
     </StyledSection>
