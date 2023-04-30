@@ -9,5 +9,31 @@ export const StyledAboutSignUpContainer = styled.div`
    
     display: flex;
     
+    
   }
-` 
+`
+
+export const StyledAboutAppButtons = styled.div`
+
+text-align: center;
+button {
+  margin-bottom: 20px;
+  width: 50%;
+  
+}
+
+@media screen and (min-width:1027px) {
+   
+   display: none;
+   
+ }
+
+`
+
+export const StyledAboutSignUpForm = styled.div`
+width: 100%;
+
+@media screen and (max-width:1024px) {
+  display: none;
+}
+`

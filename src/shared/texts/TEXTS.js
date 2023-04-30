@@ -103,11 +103,11 @@ const TEXTS = {
     loginForm: {
       title: {
         lt: 'Prisijungimas',
-        en: 'Login',
+        en: 'Log In',
       },
       button: {
         lt: 'Prisijungti',
-        en: 'Login',
+        en: 'Log In',
       },
       validate: {
         lt: 'Vartotojas neegzistuoja',

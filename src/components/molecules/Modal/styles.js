@@ -20,9 +20,11 @@ export const StyledModalWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  
 `;
 
-export const SyledCloseButtonContainer = styled.div`
+export const StyledCloseButtonContainer = styled.div`
   position: fixed;
   top: 2em;
   right: 2em;
@@ -53,4 +55,9 @@ export const StyledModal = styled.div`
   padding: 1em;
   border-radius: 0.375em;
   background-color: none;
+
+  @media screen and (max-width: 400px) {
+    display: none;
+    
+  }
 `;

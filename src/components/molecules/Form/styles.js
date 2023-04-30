@@ -2,10 +2,16 @@ import styled from 'styled-components';
 
 export const StyledFormContainer = styled.div`
   padding: 20px;
+
+  
   
   @media screen and (min-width:1024px) {
     width: 100%;
+    display: block;
+    
   }
+
+  
 
 `
 

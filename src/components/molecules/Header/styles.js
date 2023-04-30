@@ -31,3 +31,24 @@ export const StyledContainer = styled.div`
   display: flex;
   gap: 10px;
 `;
+
+export const StyledHeaderButtons = styled.div`
+display: flex;
+gap: 10px;
+
+
+@media screen and (max-width:1024px) {
+   display: none;
+
+   
+   
+ }
+
+`
+export const StyledSignUpButton = styled.div`
+
+display: none;
+
+
+
+`
