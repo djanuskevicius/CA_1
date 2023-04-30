@@ -1,8 +1,11 @@
 import styled from 'styled-components';
 
 export const StyledFormContainer = styled.div`
-max-width: 100%;
   padding: 20px;
+  
+  @media screen and (min-width:1024px) {
+    width: 100%;
+  }
 
 `
 
@@ -28,6 +31,8 @@ export const StyledFormControlBtn = styled.div`
   
 button{
   width: 50%;
+  margin-top: 20px;
+  padding: 15px;
 }
   
 `;

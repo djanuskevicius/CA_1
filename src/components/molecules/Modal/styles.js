@@ -49,6 +49,7 @@ export const SyledCloseButtonContainer = styled.div`
 
 export const StyledModal = styled.div`
   max-width: 800px;
+  
   padding: 1em;
   border-radius: 0.375em;
   background-color: none;

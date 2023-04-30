@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const StyledTodoCard = styled.div`
-  min-width: 300px;
+  min-width: 280px;
   width: 100%;
   display: flex;
   align-items: center;
@@ -16,7 +16,7 @@ export const StyledTodoCard = styled.div`
   }
 
   @media screen and (min-width: 768px) {
-    max-width: 650px;
+    max-width: 950px;
   }
 
   @media screen and (min-width: 1000px) {
@@ -26,6 +26,7 @@ export const StyledTodoCard = styled.div`
 
 export const StyledTodoIcon = styled.div`
   color: ${({ theme }) => theme.palette.purple.white};
+  /* color: ${({ color }) => color}; */
 
   @media screen and (min-width: 600px) {
     font-size: 20px;
