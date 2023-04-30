@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const StyledOverlay = styled.div`
   position: fixed;
@@ -52,5 +52,5 @@ export const StyledModal = styled.div`
   
   padding: 1em;
   border-radius: 0.375em;
-  background-color: ${(props) => props.theme.palette.light.main};
+  background-color: none;
 `;
