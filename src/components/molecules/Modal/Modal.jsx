@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import {
   StyledOverlay,
   StyledModalWrapper,
-  SyledCloseButtonContainer,
+  StyledCloseButtonContainer,
   StyledModal,
 } from './styles';
 import ICONS from '../../../shared/icons';
@@ -30,9 +30,9 @@ const Modal = ({ children, onClose }) => {
     <>
       <StyledOverlay></StyledOverlay>
       <StyledModalWrapper onClick={closeOnOverlay} data-id='modalWrapper'>
-        <SyledCloseButtonContainer>
+        <StyledCloseButtonContainer>
           <span onClick={onClose}>{ICONS.xmark}</span>
-        </SyledCloseButtonContainer>
+        </StyledCloseButtonContainer>
         <StyledModal>{children}</StyledModal>
       </StyledModalWrapper>
     </>,

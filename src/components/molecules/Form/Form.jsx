@@ -22,15 +22,15 @@ const Form = ({ inputs, handleSubmit }) => {
 
   const validateSubmit = (e) => {
     e.preventDefault();
-    
+
 
     const NotValid = inputs.filter((input) =>
       !input.required ? false : input.value ? false : true
     );
-    
+
     if (!NotValid.length) {
       setNotValid([]);
-      
+
       handleSubmit();
     } else {
       setNotValid(NotValid);
@@ -41,33 +41,34 @@ const Form = ({ inputs, handleSubmit }) => {
 
   return (
     <StyledFormContainer>
-      <Box><StyledForm onSubmit={validateSubmit}>
-      <h1>{TEXTS.page.signUpForm.title[language]}</h1>
-        
+      <Box>
+        <StyledForm onSubmit={validateSubmit}>
+          <h1>{TEXTS.page.signUpForm.title[language]}</h1>
+
           {inputs.map((input) => (
-            
-        <StyledFormControl key={input.label}>
-        <StyledLabel>{input.label}</StyledLabel>
-        <Input
-          type={input.type}
-          icon={input.icon}
-          value={input.value}
-          setValue={input.setValue}
-          placeholder={input.placeholder}
-          color='secondary'
-        />
-        {notValid.find((x) => x.label === input.label) && (
-          <StyledErrorMessage>{input.errorMessage}</StyledErrorMessage>
-        )}
-      </StyledFormControl>
-    ))}
-    <StyledFormControlBtn>
-      <Button color='info' action={() => {}} text={TEXTS.page.signUpForm.button[language]} type='submit' />
-    </StyledFormControlBtn>
-  </StyledForm>
-    </Box>
-      </StyledFormContainer>
-    
+
+            <StyledFormControl key={input.label}>
+              <StyledLabel>{input.label}</StyledLabel>
+              <Input
+                type={input.type}
+                icon={input.icon}
+                value={input.value}
+                setValue={input.setValue}
+                placeholder={input.placeholder}
+                color='secondary'
+              />
+              {notValid.find((x) => x.label === input.label) && (
+                <StyledErrorMessage>{input.errorMessage}</StyledErrorMessage>
+              )}
+            </StyledFormControl>
+          ))}
+          <StyledFormControlBtn>
+            <Button color='info' action={() => { }} text={TEXTS.page.signUpForm.button[language]} type='submit' />
+          </StyledFormControlBtn>
+        </StyledForm>
+      </Box>
+    </StyledFormContainer>
+
   );
 };
 
@@ -75,4 +76,3 @@ export default Form;
 
 
 
-  
