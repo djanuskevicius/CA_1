@@ -1,35 +1,28 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React, { useState } from "react";
+import axios from "axios";
 
-import { languageState } from '../../../shared/state/atoms';
-import { useRecoilValue } from 'recoil'
-import TEXTS from '../../../shared/texts/TEXTS';
+import { languageState } from "../../../shared/state/atoms";
+import { useRecoilValue } from "recoil";
+import TEXTS from "../../../shared/texts/TEXTS";
 
-
-
-
-import Form from '../../molecules/Form';
-import ICONS from '../../../shared/icons';
-
-
+import Form from "../../molecules/Form";
+import ICONS from "../../../shared/icons";
 
 const SignUpForm = ({ closeModal }) => {
-  const [successMessage, setSuccessMessage] = useState('');
+  const [successMessage, setSuccessMessage] = useState("");
   const [registration, setRegistration] = useState({
-    name: '',
-    surname: '',
-    email: '',
-    password: '',
+    name: "",
+    surname: "",
+    email: "",
+    password: "",
     todos: [],
-
-
   });
 
   const language = useRecoilValue(languageState);
 
   const inputs = [
     {
-      type: 'text',
+      type: "text",
       label: `${TEXTS.page.signUpForm.name[language]}`,
       placeholder: `${TEXTS.page.signUpForm.name.placeholder[language]}`,
       icon: ICONS.user,
@@ -40,7 +33,7 @@ const SignUpForm = ({ closeModal }) => {
       errorMessage: `${TEXTS.page.signUpForm.required[language]}`,
     },
     {
-      type: 'text',
+      type: "text",
       label: `${TEXTS.page.signUpForm.surname[language]}`,
       placeholder: `${TEXTS.page.signUpForm.surname.placeholder[language]}`,
       icon: ICONS.user,
@@ -51,7 +44,7 @@ const SignUpForm = ({ closeModal }) => {
       errorMessage: `${TEXTS.page.signUpForm.required[language]}`,
     },
     {
-      type: 'email',
+      type: "email",
       label: `${TEXTS.page.signUpForm.email[language]}`,
       placeholder: `${TEXTS.page.signUpForm.email.placeholder[language]}`,
       icon: ICONS.envelope,
@@ -62,7 +55,7 @@ const SignUpForm = ({ closeModal }) => {
       errorMessage: `${TEXTS.page.signUpForm.required[language]}`,
     },
     {
-      type: 'password',
+      type: "password",
       label: `${TEXTS.page.signUpForm.password[language]}`,
       placeholder: `${TEXTS.page.signUpForm.password.placeholder[language]}`,
       icon: ICONS.lock,
@@ -74,26 +67,25 @@ const SignUpForm = ({ closeModal }) => {
     },
   ];
 
-
   const handleSubmit = () => {
     // 1. Sending data to API
-    axios.get(`http://localhost:8000/users?email=${registration.email}`)
+    axios
+      .get(`http://localhost:8000/users?email=${registration.email}`)
       .then((response) => {
         if (response.data.length > 0) {
-
-          alert(`${registration.email} ${TEXTS.page.signUpForm.required.email[language]}`);
+          alert(
+            `${registration.email} ${TEXTS.page.signUpForm.required.email[language]}`
+          );
         } else {
-
           axios
-            .post('http://localhost:8000/users', registration)
+            .post("http://localhost:8000/users", registration)
             .then((response) => {
-              localStorage.setItem('userId', response.data.id);
-              window.location.href = '/todos';
+              localStorage.setItem("userId", response.data.id);
+              window.location.href = "/todos";
             })
             .catch((error) => console.log(error));
 
-
-          setSuccessMessage('Form submitted successfully!');
+          setSuccessMessage("Form submitted successfully!");
 
           if (closeModal) {
             setTimeout(() => {
@@ -104,7 +96,6 @@ const SignUpForm = ({ closeModal }) => {
       })
       .catch((error) => console.log(error));
   };
-
 
   if (successMessage) {
     return (
@@ -118,4 +109,3 @@ const SignUpForm = ({ closeModal }) => {
 };
 
 export default SignUpForm;
-
