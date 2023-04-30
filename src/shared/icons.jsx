@@ -8,6 +8,9 @@ const ICONS = {
   clock: <i className="fa-regular fa-clock"></i>,
   done: <i className="fa-regular fa-circle-check"></i>,
   add: <i className="fa-solid fa-plus"></i>,
+  start: <i className="fa-solid fa-hourglass-start"></i>,
+  delete: <i className="fa-regular fa-trash-can"></i>,
+  edit: <i className="fa-solid fa-pen"></i>,
 };
 
 export default ICONS;

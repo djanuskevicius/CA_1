@@ -1,16 +1,22 @@
-import React, { useState } from "react";
-import ICONS from "../../../shared/icons";
-import {
-  StyledTodoCard,
-  StyledTodoIcon, StyledTodoTitleSection,
-  StyledTodoTitle, StyledTodoDescriptionSection,
-  StyledTodoDescription, StyledTextButtons, StyledDescriptionButtons
-} from "./styles";
+import { useState } from "react";
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
+// import { ICONS } from "../constants/icons";
+import ICONS from '../../../shared/icons'
+import {
+  StyledTodoCard,
+  StyledTodoTitle,
+  StyledTodoIcon,
+  StyledTodoTitleSection,
+  StyledTodoDescriptionSection,
+  StyledTodoDescription,
+  StyledTextButtons,
+  StyledDescriptionButtons,
+} from "./styles";
+import Button from '../Button/index'
 
 const TodoCard = () => {
-  const { data: todos } = useQuery(["todos"], async () => {
+  const { data: todos, refetch } = useQuery(["todos"], async () => {
     const { data } = await axios.get("http://localhost:8000/todos");
     const currentUserId = parseInt(localStorage.userId);
     const filterTodos = data.filter((x) => x.userId === currentUserId);
@@ -23,6 +29,8 @@ const TodoCard = () => {
       return ICONS.clock;
     } else if (status === "Done") {
       return ICONS.done;
+    } else if (status === 'To Do') {
+      return ICONS.start;
     }
   };
 
@@ -30,6 +38,15 @@ const TodoCard = () => {
 
   const toggleAccordion = (id) => {
     setExpandedTodoId((prev) => (prev === id ? null : id));
+  };
+
+  const handleDelete = async (id) => {
+    try {
+      await axios.delete(`http://localhost:8000/todos/${id}`);
+      refetch();
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
@@ -48,9 +65,9 @@ const TodoCard = () => {
                 <StyledTextButtons>
                   <li>{todo.description}</li>
                   <StyledDescriptionButtons>
-                    <button>Update</button>
-                    <button>Delete</button>
-                    <button>Complete</button>
+                    <button onClick={() => console.log("Update clicked")}>{ICONS.edit}</button>
+                    <button onClick={() => handleDelete(todo.id)}>{ICONS.delete}</button>
+                    <button onClick={() => console.log("Complete clicked")}>{ICONS.check}</button>
                   </StyledDescriptionButtons>
                 </StyledTextButtons>
               </StyledTodoDescription>
