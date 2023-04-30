@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const StyledHeader = styled.div`
   width: 100%;
@@ -8,6 +8,7 @@ export const StyledHeader = styled.div`
   align-items: center;
   padding: 10px;
   color: ${({ theme }) => theme.palette.purple.light};
+  height: 10vh;
 `;
 
 export const StyledLogo = styled.div`
