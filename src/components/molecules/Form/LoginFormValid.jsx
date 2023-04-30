@@ -19,12 +19,12 @@ import {
 } from './styles';
 
 const LoginFormValid = ({ inputs, handleSubmit }) => {
-    
+
   const [notValid, setNotValid] = useState([]);
 
-  const validateSubmit = (e) => {
+  const validateSubmit = async (e) => {
     e.preventDefault();
-    
+
 
     const NotValid = inputs.filter((input) =>
       !input.required ? false : input.value ? false : true
@@ -32,60 +32,63 @@ const LoginFormValid = ({ inputs, handleSubmit }) => {
 
     if (!NotValid.length) {
       setNotValid([]);
-      
-      
+
+
 
       const email = inputs.find((input) => input.type === 'email').value;
+      const password = inputs.find((input) => input.type === 'password').value;
 
-      axios.get(`http://localhost:8000/users?email=${email}`)
+
+      axios.get(`http://localhost:8000/users?email=${email}&password=${password}`)
         .then((response) => {
-            
+
           if (response.data.length === 0) {
             alert(`${TEXTS.page.loginForm.validate[language]}`)
           } else {
             handleSubmit();
+
           }
-         
+
         })
         .catch((error) => console.log(error))
 
-    
-    } else {
-      setNotValid(NotValid);
-    }
-  };
+
+
+
+    };
+  }
 
   const language = useRecoilValue(languageState);
 
   return (
     <StyledFormContainer>
       <Box><StyledForm onSubmit={validateSubmit}>
-      <h1>{TEXTS.page.loginForm.title[language]}</h1>
-        
-          {inputs.map((input) => (
-            
-        <StyledFormControl key={input.label}>
-        <StyledLabel>{input.label}</StyledLabel>
-        <Input
-          type={input.type}
-          icon={input.icon}
-          value={input.value}
-          setValue={input.setValue}
-          placeholder={input.placeholder}
-          color='secondary'
-        />
-        {notValid.find((x) => x.label === input.label) && (
-          <StyledErrorMessage>{input.errorMessage}</StyledErrorMessage>
-        )}
-      </StyledFormControl>
-    ))}
-    <StyledFormControlBtn>
-      <Button color='info' action={() => {}} text={TEXTS.page.loginForm.button[language]} type='submit' />
-    </StyledFormControlBtn>
-  </StyledForm>
-    </Box>
-      </StyledFormContainer>
-    
+        <h1>{TEXTS.page.loginForm.title[language]}</h1>
+
+        {inputs.map((input) => (
+
+          <StyledFormControl key={input.label}>
+            <StyledLabel>{input.label}</StyledLabel>
+            <Input
+              type={input.type}
+              icon={input.icon}
+              value={input.value}
+              setValue={input.setValue}
+              placeholder={input.placeholder}
+              color='secondary'
+            />
+            {notValid.find((x) => x.label === input.label) && (
+              <StyledErrorMessage>{input.errorMessage}</StyledErrorMessage>
+            )}
+          </StyledFormControl>
+        ))}
+        <StyledFormControlBtn>
+          <Button color='info' action={() => { }} text={TEXTS.page.loginForm.button[language]} type='submit' />
+        </StyledFormControlBtn>
+      </StyledForm>
+      </Box>
+    </StyledFormContainer>
+
   );
 };
 

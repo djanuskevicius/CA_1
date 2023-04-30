@@ -5,6 +5,7 @@ import { languageState } from '../../../shared/state/atoms'
 import { StyledContainer, StyledHeader, StyledText, StyledImage } from './styles'
 import Box from '../../atoms/Box/Box'
 
+
 const AboutApp = () => {
   const language = useRecoilValue(languageState);
 

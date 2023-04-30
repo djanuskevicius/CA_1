@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import LogInForm from '../LogInForm/LogInForm';
+import LoginForm from '../LoginForm/LoginForm';
 import Button from '../../atoms/Button';
 import Modal from '../../molecules/Modal/Modal';
 import { languageState } from '../../../shared/state/atoms';
@@ -20,7 +20,7 @@ const LogInButton = () => {
       />
       {isLogInFormOpen && (
         <Modal onClose={closeLogInFormModal}>
-          <LogInForm closeModal={closeLogInFormModal} />
+          <LoginForm closeModal={closeLogInFormModal} />
         </Modal>
       )}
     </div>
