@@ -4,7 +4,7 @@ import ICONS from "../../../shared/icons";
 import { useRecoilValue } from "recoil";
 import { languageState } from "../../../shared/state/atoms";
 import Modal from "../../molecules/Modal/Modal";
-import TodoAddForm from "../../organisms/TodoAddForm";
+import TodoForm from "../../molecules/TodoForm/TodoForm";
 
 const AddButton = () => {
   const [isFormOpen, setIsFormOpen] = useState(false);
@@ -17,7 +17,7 @@ const AddButton = () => {
       <StyledAddButton onClick={openForm}>{ICONS.add} </StyledAddButton>
       {isFormOpen && (
         <Modal onClose={closeForm}>
-          <TodoAddForm closeModal={closeForm} />
+          <TodoForm closeModal={closeForm} />
         </Modal>
       )}
     </>
