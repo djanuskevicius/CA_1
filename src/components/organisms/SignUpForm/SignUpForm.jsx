@@ -21,8 +21,8 @@ const SignUpForm = ({ closeModal }) => {
     email: '',
     password: '',
     todos: [],
-    
-    
+
+
   });
 
   const language = useRecoilValue(languageState);
@@ -74,26 +74,37 @@ const SignUpForm = ({ closeModal }) => {
     },
   ];
 
+
   const handleSubmit = () => {
     // 1. Sending data to API
-    axios
-      .post('http://localhost:8000/users', registration)
+    axios.get(`http://localhost:8000/users?email=${registration.email}`)
       .then((response) => {
-        localStorage.setItem('userId', response.data.id);
-        window.location.href = '/todos';
+        if (response.data.length > 0) {
+
+          alert(`${registration.email} ${TEXTS.page.signUpForm.required.email[language]}`);
+        } else {
+
+          axios
+            .post('http://localhost:8000/users', registration)
+            .then((response) => {
+              localStorage.setItem('userId', response.data.id);
+              window.location.href = '/todos';
+            })
+            .catch((error) => console.log(error));
+
+
+          setSuccessMessage('Form submitted successfully!');
+
+          if (closeModal) {
+            setTimeout(() => {
+              closeModal();
+            }, 2000);
+          }
+        }
       })
       .catch((error) => console.log(error));
+  };
 
-    
-    // 2. If request was successfull, closing modal
-    setSuccessMessage('Form submited successfully!');
-
-    if (closeModal) {
-      setTimeout(() => {
-        closeModal();
-      }, 2000);
-    }
-};
 
   if (successMessage) {
     return (

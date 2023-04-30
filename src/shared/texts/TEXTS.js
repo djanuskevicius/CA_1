@@ -89,6 +89,10 @@ const TEXTS = {
       required: {
         lt: 'Privaloma',
         en: 'Required',
+        email: {
+          lt: 'jau egzistuoja',
+          en: 'already exists'
+        }
       },
       button: {
         lt: 'Registruotis',
