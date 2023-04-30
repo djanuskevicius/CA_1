@@ -11,9 +11,16 @@ const LogOutButton = () => {
   function handleLogout() {
     localStorage.clear();
     navigate('/');
+    window.location.reload();
   }
 
-  return <Button action={handleLogout} text={TEXTS.menu.logout[language]} />;
+  return (
+    <Button
+      action={handleLogout}
+      text={TEXTS.menu.logout[language]}
+      color='primary'
+    />
+  );
 };
 
 export default LogOutButton;
