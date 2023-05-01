@@ -46,6 +46,30 @@ const TEXTS = {
       lt: "Jūsų užduoties statusas",
       en: "Your task status",
     },
+    button: {
+      lt: "Pridėti užduoti",
+      en: "Add task",
+    },
+    optionOne: {
+      lt: "Jūsų antraštė",
+      en: "Your task title goes here",
+    },
+    optionTwo: {
+      lt: "Jūsų aprašymas",
+      en: "Your task description goes here",
+    },
+    selectOne: {
+      lt: "Ne pradėta",
+      en: "To Do",
+    },
+    selectTwo: {
+      lt: "Pradėta",
+      en: "In progress",
+    },
+    selectThree: {
+      lt: "Baigta",
+      en: "Done",
+    },
   },
 
   page: {
