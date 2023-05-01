@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 // import { ICONS } from "../constants/icons";
-import ICONS from '../../../shared/icons'
+import ICONS from "../../../shared/icons";
 import {
   StyledTodoCard,
   StyledTodoTitle,
@@ -13,7 +13,7 @@ import {
   StyledTextButtons,
   StyledDescriptionButtons,
 } from "./styles";
-import Button from '../Button/index'
+import Button from "../Button/index";
 
 const TodoCard = () => {
   const { data: todos, refetch } = useQuery(["todos"], async () => {
@@ -25,11 +25,11 @@ const TodoCard = () => {
   });
 
   const getIcon = (status) => {
-    if (status === "In progress") {
+    if (status === "In progress" || "Pradėta") {
       return ICONS.clock;
-    } else if (status === "Done") {
+    } else if (status === "Done" || "Baigta") {
       return ICONS.done;
-    } else if (status === 'To Do') {
+    } else if (status === "To Do" || "Ne pradėta") {
       return ICONS.start;
     }
   };
@@ -65,9 +65,15 @@ const TodoCard = () => {
                 <StyledTextButtons>
                   <li>{todo.description}</li>
                   <StyledDescriptionButtons>
-                    <button onClick={() => console.log("Update clicked")}>{ICONS.edit}</button>
-                    <button onClick={() => handleDelete(todo.id)}>{ICONS.delete}</button>
-                    <button onClick={() => console.log("Complete clicked")}>{ICONS.check}</button>
+                    <button onClick={() => console.log("Update clicked")}>
+                      {ICONS.edit}
+                    </button>
+                    <button onClick={() => handleDelete(todo.id)}>
+                      {ICONS.delete}
+                    </button>
+                    <button onClick={() => console.log("Complete clicked")}>
+                      {ICONS.check}
+                    </button>
                   </StyledDescriptionButtons>
                 </StyledTextButtons>
               </StyledTodoDescription>

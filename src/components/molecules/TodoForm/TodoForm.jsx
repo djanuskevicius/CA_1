@@ -9,6 +9,7 @@ import {
 import TEXTS from "../../../shared/texts/TEXTS";
 import { useRecoilValue } from "recoil";
 import { languageState } from "../../../shared/state/atoms";
+import Button from "../../atoms/Button/Button";
 
 import axios from "axios";
 
@@ -55,18 +56,18 @@ const TodoForm = ({}) => {
         <input
           required
           maxLength={20}
-          placeholder="Your task goes here"
+          placeholder={TEXTS.form.optionOne[language]}
           name="title"
           value={todo.title}
           onChange={handleChange}
-        />{" "}
+        />
         <label>
           <h2>{TEXTS.form.taskDescription[language]}</h2>
         </label>
         <textarea
           required
           maxLength={200}
-          placeholder="Your description goes here"
+          placeholder={TEXTS.form.optionTwo[language]}
           name="description"
           value={todo.description}
           onChange={handleChange}
@@ -81,13 +82,17 @@ const TodoForm = ({}) => {
           onChange={handleChange}
         >
           <option></option>
-          <option>To Do</option>
-          <option>In progress</option>
-          <option>Done</option>
+          <option>{TEXTS.form.selectOne[language]}</option>
+          <option>{TEXTS.form.selectTwo[language]}</option>
+          <option>{TEXTS.form.selectThree[language]}</option>
         </select>
       </StyledForm>
       <StyledButton>
-        <button onClick={handleSubmit}> add item</button>
+        <Button
+          action={handleSubmit}
+          text={TEXTS.form.button[language]}
+          color="primary"
+        ></Button>
       </StyledButton>
     </StyledTodoContainer>
   );
