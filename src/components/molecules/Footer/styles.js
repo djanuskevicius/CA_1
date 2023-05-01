@@ -7,5 +7,5 @@ export const StyledFooter = styled.footer`
   text-align: center;
   background-color: ${({ theme }) => theme.palette.purple.dark};
   margin-top: auto;
-  color: ${({ theme }) => theme.palette.purple.light};
+  color: ${({ theme }) => theme.palette.purple.white};
 `;
