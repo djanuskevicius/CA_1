@@ -6,6 +6,10 @@ import {
   StyledButton,
 } from "./styles";
 
+import TEXTS from "../../../shared/texts/TEXTS";
+import { useRecoilValue } from "recoil";
+import { languageState } from "../../../shared/state/atoms";
+
 import axios from "axios";
 
 const TodoForm = ({}) => {
@@ -15,6 +19,8 @@ const TodoForm = ({}) => {
     status: "",
     userId: "",
   });
+
+  const language = useRecoilValue(languageState);
 
   const handleSubmit = () => {
     todo["userId"] = parseInt(localStorage.userId);
@@ -41,10 +47,10 @@ const TodoForm = ({}) => {
 
   return (
     <StyledTodoContainer>
-      <StyledTodoHeader>Add your Todo item</StyledTodoHeader>
+      <StyledTodoHeader>{TEXTS.form.title[language]}</StyledTodoHeader>
       <StyledForm>
         <label>
-          <h2>Your task title</h2>
+          <h2>{TEXTS.form.taskTitle[language]}</h2>
         </label>
         <input
           required
@@ -55,7 +61,7 @@ const TodoForm = ({}) => {
           onChange={handleChange}
         />{" "}
         <label>
-          <h2>Your task description</h2>
+          <h2>{TEXTS.form.taskDescription[language]}</h2>
         </label>
         <textarea
           required
@@ -66,7 +72,7 @@ const TodoForm = ({}) => {
           onChange={handleChange}
         />
         <label>
-          <h2>What is the status of your task</h2>
+          <h2>{TEXTS.form.taskStatus[language]}</h2>
         </label>
         <select
           required
