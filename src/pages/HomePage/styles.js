@@ -1,8 +1,8 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const StyledSection = styled.section`
   background-color: ${({ theme }) => theme.palette.purple.main};
-  height: 80vh;
+  /* height: 80vh; */
 `;
 
 export const StyledAboutSignUpContainer = styled.div`

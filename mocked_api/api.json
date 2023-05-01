@@ -6,6 +6,13 @@
       "description": "Description 1",
       "status": "In progress",
       "userId": 1
+    },
+    {
+      "title": "sdfasdf",
+      "description": "asdfaf",
+      "status": "Pradėta",
+      "userId": 2,
+      "id": 2
     }
   ],
   "users": [
@@ -18,6 +25,14 @@
       "todos": [
         1
       ]
+    },
+    {
+      "name": "super",
+      "surname": "kebab",
+      "email": "eim@eim",
+      "password": "saf",
+      "todos": [],
+      "id": 2
     }
   ]
 }

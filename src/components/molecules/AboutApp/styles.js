@@ -1,18 +1,16 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const StyledContainer = styled.div`
-  
   padding: 20px;
+  max-width: 600px;
 
-  @media screen and (min-width:1024px) {
+  @media screen and (min-width: 1024px) {
     width: 100%;
     display: flex;
     justify-content: center;
   }
-  
 
-  h1,
-  p {
+  h1 {
     color: ${({ theme }) => theme.palette.purple.white};
     text-align: center;
   }
@@ -33,6 +31,7 @@ export const StyledHeader = styled.h1`
 `;
 
 export const StyledText = styled.p`
+  color: ${({ theme }) => theme.palette.purple.white};
   font-weight: 400;
   font-size: 17px;
   margin-bottom: 10px;

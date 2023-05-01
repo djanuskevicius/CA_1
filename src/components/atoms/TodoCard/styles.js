@@ -19,7 +19,8 @@ export const StyledTodoCard = styled.div`
   }
 
   @media screen and (min-width: 1000px) {
-    max-width: 400px;
+    max-width: 500px;
+    width: 100%;
   }
 `;
 
@@ -29,6 +30,14 @@ export const StyledTodoIcon = styled.div`
   @media screen and (min-width: 600px) {
     font-size: 20px;
     margin-left: 10px;
+  }
+
+  @media screen and (min-width: 768px) {
+    font-size: 22px;
+  }
+
+  @media screen and (min-width: 1000px) {
+    font-size: 25px;
   }
 `;
 
@@ -45,6 +54,14 @@ export const StyledTodoTitle = styled.h3`
   @media screen and (min-width: 600px) {
     font-size: 24px;
   }
+
+  @media screen and (min-width: 768px) {
+    font-size: 30px;
+  }
+
+  @media screen and (min-width: 1000px) {
+    font-size: 33px;
+  }
 `;
 
 export const StyledTodoDescriptionSection = styled.div`
@@ -57,12 +74,17 @@ export const StyledTodoDescriptionSection = styled.div`
 `;
 
 export const StyledTodoDescription = styled.div`
+  cursor: initial;
   color: ${({ theme }) => theme.palette.dark.main};
   padding: 15px;
   justify-content: space-between;
 
   @media screen and (min-width: 600px) {
     font-size: 20px;
+  }
+
+  @media screen and (min-width: 768px) {
+    font-size: 25px;
   }
 `;
 
@@ -78,4 +100,17 @@ export const StyledDescriptionButtons = styled.div`
   justify-content: flex-end;
   align-items: center;
   gap: 10px;
+`;
+
+export const StyledActionButtons = styled.button`
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  padding: 5px;
+  font-size: 20px;
+
+  @media screen and (min-width: 600px) {
+    padding: 10px;
+    font-size: 25px;
+  }
 `;

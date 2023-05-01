@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const StyledSection = styled.section`
   background-color: ${({ theme }) => theme.palette.purple.main};
@@ -12,16 +12,31 @@ export const StyledSection = styled.section`
 export const StyledHeadline = styled.h1`
   text-align: center;
   font-size: 30px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 35px;
+  }
+
+  @media screen and (min-width: 1000px) {
+    font-size: 40px;
+  }
 `;
 
-export const StyledTodosContainer = styled.div`
+export const StyledTodosWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   gap: 20px;
+  padding: 10px;
 
   @media screen and (min-width: 1000px) {
-    flex-direction: row;
-    align-items: center;
+    max-width: 1000px;
+    margin: 10px auto;
+    width: 100%;
   }
+`;
+
+export const StyledTodosContainer = styled.div`
+  width: 100%;
 `;
