@@ -1,7 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
-// import { ICONS } from "../constants/icons";
 import ICONS from "../../../shared/icons";
 import {
   StyledTodoCard,
@@ -13,7 +12,6 @@ import {
   StyledTextButtons,
   StyledDescriptionButtons, StyledActionButtons
 } from "./styles";
-import Button from "../Button/index";
 
 const TodoCard = () => {
   const { data: todos, refetch } = useQuery(["todos"], async () => {
@@ -24,21 +22,12 @@ const TodoCard = () => {
     return filterTodos;
   });
 
-  const getIcon = (status) => {
-    if (status === "In progress" || "Pradėta") {
-      return ICONS.clock;
-    } else if (status === "Done" || "Baigta") {
-      return ICONS.done;
-    } else if (status === "To Do" || "Ne pradėta") {
-      return ICONS.start;
-    }
-  };
-
   const [expandedTodoId, setExpandedTodoId] = useState(null);
 
   const toggleAccordion = (id) => {
     setExpandedTodoId((prev) => (prev === id ? null : id));
   };
+
 
   const handleDelete = async (id) => {
     try {
@@ -46,6 +35,33 @@ const TodoCard = () => {
       refetch();
     } catch (error) {
       console.error(error);
+    }
+  };
+
+  const handleComplete = async (id) => {
+    try {
+      await axios.patch(`http://localhost:8000/todos/${id}`, {
+        status: 'Done'
+      });
+      refetch();
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const getIcon = (status) => {
+    switch (status) {
+      case 'In progress':
+      case 'Pradėta':
+        return ICONS.clock;
+      case 'Done':
+      case 'Baigta':
+        return ICONS.done;
+      case 'To Do':
+      case 'Ne pradėta':
+        return ICONS.start;
+      default:
+        return null;
     }
   };
 
@@ -73,7 +89,7 @@ const TodoCard = () => {
                     <StyledActionButtons onClick={() => handleDelete(todo.id)}>
                       {ICONS.delete}
                     </StyledActionButtons>
-                    <StyledActionButtons onClick={() => console.log("Complete clicked")}>
+                    <StyledActionButtons onClick={() => handleComplete(todo.id)}>
                       {ICONS.check}
                     </StyledActionButtons>
                   </StyledDescriptionButtons>
