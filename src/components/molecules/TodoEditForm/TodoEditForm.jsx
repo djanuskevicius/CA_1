@@ -37,6 +37,7 @@ const TodoEditForm = ({ id }) => {
         status: todo.status,
       });
       refetch();
+      window.location.href = '/todos';
     } catch (error) {
       console.error(error);
     }
