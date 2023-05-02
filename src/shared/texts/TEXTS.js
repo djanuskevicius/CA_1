@@ -70,6 +70,14 @@ const TEXTS = {
       lt: "Baigta",
       en: "Done",
     },
+    validationTitle: {
+      lt: "Butina irašyti antraštę",
+      en: "Title cannot be empty",
+    },
+    validationStatus: {
+      lt: "Būtina pasirinkti statusą",
+      en: "Status cannot be empty",
+    },
   },
 
   page: {

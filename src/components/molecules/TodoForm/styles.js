@@ -24,10 +24,10 @@ export const StyledForm = styled.form`
   h2 {
     color: white;
     font-weight: 200;
+    margin-top: 10px;
   }
 
   input {
-    margin-bottom: 20px;
     max-width: 200px;
     border: none;
     border-radius: 5px;
@@ -60,4 +60,8 @@ export const StyledButton = styled.div`
   button {
     width: 30%;
   }
+`;
+
+export const StyledWarning = styled.p`
+  color: red;
 `;

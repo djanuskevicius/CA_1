@@ -1,15 +1,13 @@
 import styled from "styled-components";
 
 export const StyledContainer = styled.div`
-  
   padding: 20px;
 
-  @media screen and (min-width:1024px) {
+  @media screen and (min-width: 1024px) {
     width: 100%;
     display: flex;
     justify-content: center;
   }
-  
 
   h1,
   p {
@@ -49,4 +47,5 @@ export const StyledImage = styled.img`
   max-width: 100%;
   opacity: 0.8;
   margin-top: 10px;
+  border-radius: 5px;
 `;
