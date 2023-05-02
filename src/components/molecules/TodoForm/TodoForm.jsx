@@ -1,37 +1,37 @@
-import { useState } from "react";
+import { useState } from 'react';
 import {
   StyledTodoContainer,
   StyledTodoHeader,
   StyledForm,
   StyledButton,
   StyledWarning,
-} from "./styles";
+} from './styles';
 
-import TEXTS from "../../../shared/texts/TEXTS";
-import { useRecoilValue } from "recoil";
-import { languageState } from "../../../shared/state/atoms";
-import Button from "../../atoms/Button/Button";
+import TEXTS from '../../../shared/texts/TEXTS';
+import { useRecoilValue } from 'recoil';
+import { languageState } from '../../../shared/state/atoms';
+import Button from '../../atoms/Button/Button';
 
-import axios from "axios";
+import axios from 'axios';
 
 const TodoForm = ({}) => {
   const [todo, setTodo] = useState({
-    title: "",
-    description: "",
-    status: "",
-    userId: "",
+    title: '',
+    description: '',
+    status: '',
+    userId: '',
   });
 
   const language = useRecoilValue(languageState);
 
   const handleSubmit = () => {
-    todo["userId"] = parseInt(localStorage.userId);
+    todo['userId'] = parseInt(localStorage.userId);
 
     axios
-      .post("http://localhost:8000/todos", todo)
+      .post('http://localhost:8000/todos', todo)
       .then((response) => {
-        localStorage.setItem("todoId", response.data.id);
-        window.location.href = "/todos";
+        localStorage.setItem('todoId', response.data.id);
+        window.location.href = '/todos';
       })
       .catch((err) => {
         console.log(err);
@@ -60,9 +60,9 @@ const TodoForm = ({}) => {
   };
 
   const emptyValidation = () => {
-    if (todo.title === "" || null) {
+    if (todo.title === '' || null) {
       setValid();
-    } else if (todo.status === "" || null) {
+    } else if (todo.status === '' || null) {
       statusValidation();
     } else {
       return handleSubmit();
@@ -72,14 +72,14 @@ const TodoForm = ({}) => {
   return (
     <StyledTodoContainer>
       <StyledTodoHeader>{TEXTS.form.title[language]}</StyledTodoHeader>
-      <StyledForm>
+      <StyledForm status={toggle} selectStatus={statusToggle}>
         <label>
           <h2>{TEXTS.form.taskTitle[language]}</h2>
         </label>
         <input
           maxLength={20}
           placeholder={TEXTS.form.optionOne[language]}
-          name="title"
+          name='title'
           value={todo.title}
           onChange={handleChange}
           required
@@ -94,7 +94,7 @@ const TodoForm = ({}) => {
           required
           maxLength={200}
           placeholder={TEXTS.form.optionTwo[language]}
-          name="description"
+          name='description'
           value={todo.description}
           onChange={handleChange}
         />
@@ -103,7 +103,7 @@ const TodoForm = ({}) => {
         </label>
         <select
           required
-          name="status"
+          name='status'
           value={todo.status}
           onChange={handleChange}
         >
@@ -120,7 +120,7 @@ const TodoForm = ({}) => {
         <Button
           action={emptyValidation}
           text={TEXTS.form.button[language]}
-          color="primary"
+          color='primary'
         ></Button>
       </StyledButton>
     </StyledTodoContainer>

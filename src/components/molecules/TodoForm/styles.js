@@ -32,6 +32,7 @@ export const StyledForm = styled.form`
     border: none;
     border-radius: 5px;
     padding: 10px;
+    border: ${(props) => (!props.status ? 'none' : '2px solid red')};
   }
 
   input,
@@ -48,7 +49,7 @@ export const StyledForm = styled.form`
   }
 
   select {
-    border: none;
+    border: ${(props) => (!props.statusToggle ? 'none' : '2px solid red')};
     border-radius: 5px;
   }
 `;

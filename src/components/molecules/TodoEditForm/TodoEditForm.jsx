@@ -4,6 +4,7 @@ import {
   StyledTodoHeader,
   StyledForm,
   StyledButton,
+  StyledWarning,
 } from '../TodoForm/styles';
 
 import TEXTS from '../../../shared/texts/TEXTS';
@@ -17,7 +18,10 @@ import { useQuery } from '@tanstack/react-query';
 const TodoEditForm = ({ id }) => {
   const { data: todos, refetch } = useQuery(['todos'], async () => {
     const { data } = await axios.get(`http://localhost:8000/todos`);
-    return;
+    const currentUserId = parseInt(localStorage.userId);
+    const filterTodos = data.filter((x) => x.userId === currentUserId);
+
+    return filterTodos;
   });
 
   const [todo, setTodo] = useState({
@@ -52,6 +56,28 @@ const TodoEditForm = ({ id }) => {
     }));
   };
 
+  const [toggle, setToggle] = useState(false);
+
+  const setValid = () => {
+    setToggle(!toggle);
+  };
+
+  const [statusToggle, setStatusToggle] = useState(false);
+
+  const statusValidation = () => {
+    setStatusToggle(!statusToggle);
+  };
+
+  const emptyValidation = (id) => {
+    if (todo.title === '' || null) {
+      setValid();
+    } else if (todo.status === '' || null) {
+      statusValidation();
+    } else {
+      return handleEdit(id);
+    }
+  };
+
   return (
     <StyledTodoContainer>
       <StyledTodoHeader>{TEXTS.form.edit[language]}</StyledTodoHeader>
@@ -67,6 +93,9 @@ const TodoEditForm = ({ id }) => {
           value={todo.title}
           onChange={handleChange}
         />
+        {toggle ? (
+          <StyledWarning>{TEXTS.form.validationTitle[language]}</StyledWarning>
+        ) : null}
         <label>
           <h2>{TEXTS.form.editDescription[language]}</h2>
         </label>
@@ -92,11 +121,16 @@ const TodoEditForm = ({ id }) => {
           <option>{TEXTS.form.selectTwo[language]}</option>
           <option>{TEXTS.form.selectThree[language]}</option>
         </select>
+        {statusToggle ? (
+          <StyledWarning>{TEXTS.form.validationStatus[language]}</StyledWarning>
+        ) : null}
       </StyledForm>
       <StyledButton>
         <Button
-          action={() => handleEdit(id)}
-          text={TEXTS.form.button[language]}
+          action={() => {
+            emptyValidation(id);
+          }}
+          text={TEXTS.form.edit[language]}
           color='primary'
         ></Button>
       </StyledButton>
