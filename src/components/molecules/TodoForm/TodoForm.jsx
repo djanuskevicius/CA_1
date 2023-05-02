@@ -4,6 +4,7 @@ import {
   StyledTodoHeader,
   StyledForm,
   StyledButton,
+  StyledWarning,
 } from "./styles";
 
 import TEXTS from "../../../shared/texts/TEXTS";
@@ -46,6 +47,28 @@ const TodoForm = ({}) => {
     }));
   };
 
+  const [toggle, setToggle] = useState(false);
+
+  const setValid = () => {
+    setToggle(!toggle);
+  };
+
+  const [statusToggle, setStatusToggle] = useState(false);
+
+  const statusValidation = () => {
+    setStatusToggle(!statusToggle);
+  };
+
+  const emptyValidation = () => {
+    if (todo.title === "" || null) {
+      setValid();
+    } else if (todo.status === "" || null) {
+      statusValidation();
+    } else {
+      return handleSubmit();
+    }
+  };
+
   return (
     <StyledTodoContainer>
       <StyledTodoHeader>{TEXTS.form.title[language]}</StyledTodoHeader>
@@ -54,13 +77,16 @@ const TodoForm = ({}) => {
           <h2>{TEXTS.form.taskTitle[language]}</h2>
         </label>
         <input
-          required
           maxLength={20}
           placeholder={TEXTS.form.optionOne[language]}
           name="title"
           value={todo.title}
           onChange={handleChange}
+          required
         />
+        {toggle ? (
+          <StyledWarning>{TEXTS.form.validationTitle[language]}</StyledWarning>
+        ) : null}
         <label>
           <h2>{TEXTS.form.taskDescription[language]}</h2>
         </label>
@@ -86,10 +112,13 @@ const TodoForm = ({}) => {
           <option>{TEXTS.form.selectTwo[language]}</option>
           <option>{TEXTS.form.selectThree[language]}</option>
         </select>
+        {statusToggle ? (
+          <StyledWarning>{TEXTS.form.validationStatus[language]}</StyledWarning>
+        ) : null}
       </StyledForm>
       <StyledButton>
         <Button
-          action={handleSubmit}
+          action={emptyValidation}
           text={TEXTS.form.button[language]}
           color="primary"
         ></Button>

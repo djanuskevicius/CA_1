@@ -47,4 +47,5 @@ export const StyledImage = styled.img`
   max-width: 100%;
   opacity: 0.8;
   margin-top: 10px;
+  border-radius: 5px;
 `;
