@@ -1,25 +1,25 @@
-import { useState, useContext } from "react";
-import axios from "axios";
+import React, { useState } from 'react';
+import axios from 'axios';
 
-import { languageState } from "../../../shared/state/atoms";
-import { useRecoilValue } from "recoil";
-import TEXTS from "../../../shared/texts/TEXTS";
+import { languageState } from '../../../shared/state/atoms';
+import { useRecoilValue } from 'recoil';
+import TEXTS from '../../../shared/texts/TEXTS';
 
-import Form from "../../molecules/Form/LoginFormValid";
-import ICONS from "../../../shared/icons";
+import Form from '../../molecules/Form/LoginFormValid';
+import ICONS from '../../../shared/icons';
 
 const LoginForm = (closeModal) => {
-  const [successMessage, setSuccessMessage] = useState("");
+  const [successMessage, setSuccessMessage] = useState('');
   const [login, setLogin] = useState({
-    email: "",
-    password: "",
+    email: '',
+    password: '',
   });
 
   const language = useRecoilValue(languageState);
 
   const inputs = [
     {
-      type: "email",
+      type: 'email',
       label: `${TEXTS.page.signUpForm.email[language]}`,
       placeholder: `${TEXTS.page.signUpForm.email.placeholder[language]}`,
       icon: ICONS.envelope,
@@ -29,7 +29,7 @@ const LoginForm = (closeModal) => {
       errorMessage: `${TEXTS.page.signUpForm.required[language]}`,
     },
     {
-      type: "password",
+      type: 'password',
       label: `${TEXTS.page.signUpForm.password[language]}`,
       placeholder: `${TEXTS.page.signUpForm.password.placeholder[language]}`,
       icon: ICONS.lock,
@@ -48,14 +48,14 @@ const LoginForm = (closeModal) => {
         alert(`${TEXTS.page.loginForm.validate[language]}`);
       } else {
         const user = response.data.find((x) => x.email === login.email);
-        localStorage.setItem("userId", user.id);
-        window.location.href = "/todos";
+        localStorage.setItem('userId', user.id);
+        window.location.href = '/todos';
       }
     } catch (error) {
       console.log(error);
     }
 
-    setSuccessMessage("Form submitted successfully!");
+    setSuccessMessage('Logged in  successfully!');
     if (closeModal) {
       setTimeout(() => {
         closeModal();

@@ -1,8 +1,7 @@
 import { useState } from 'react';
 
-
 import { languageState } from '../../../shared/state/atoms';
-import { useRecoilValue } from 'recoil'
+import { useRecoilValue } from 'recoil';
 import TEXTS from '../../../shared/texts/TEXTS';
 import Box from '../../atoms/Box/Box';
 
@@ -22,7 +21,6 @@ const Form = ({ inputs, handleSubmit }) => {
 
   const validateSubmit = (e) => {
     e.preventDefault();
-
 
     const NotValid = inputs.filter((input) =>
       !input.required ? false : input.value ? false : true
@@ -46,7 +44,6 @@ const Form = ({ inputs, handleSubmit }) => {
           <h1>{TEXTS.page.signUpForm.title[language]}</h1>
 
           {inputs.map((input) => (
-
             <StyledFormControl key={input.label}>
               <StyledLabel>{input.label}</StyledLabel>
               <Input
@@ -63,16 +60,17 @@ const Form = ({ inputs, handleSubmit }) => {
             </StyledFormControl>
           ))}
           <StyledFormControlBtn>
-            <Button color='info' action={() => { }} text={TEXTS.page.signUpForm.button[language]} type='submit' />
+            <Button
+              color='info'
+              action={() => {}}
+              text={TEXTS.page.signUpForm.button[language]}
+              type='submit'
+            />
           </StyledFormControlBtn>
         </StyledForm>
       </Box>
     </StyledFormContainer>
-
   );
 };
 
 export default Form;
-
-
-
