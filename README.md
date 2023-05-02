@@ -13,19 +13,20 @@ This will start the development server and the JSON server. The application can 
 http://localhost:5173/
 
 And you can see the mock server at:
-http://localhost:8000
-http://localhost:8000/todos
-http://localhost:8000/users
+
+- http://localhost:8000
+- http://localhost:8000/todos
+- http://localhost:8000/users
 
 ## Features
 
 - Create new users;
 - Log in with valid users;
-  -- Logged in user can see list of todos;
-  -- Add new todos;
-  -- Update todos;
-  -- Remove todos;
-  -- Complete todos;
+  - Logged in user can see list of todos;
+  - Add new todos;
+  - Update todos;
+  - Remove todos;
+  - Complete todos;
 
 ## Technologies used
 
