@@ -1,7 +1,9 @@
-import { useState } from "react";
-import axios from "axios";
-import { useQuery } from "@tanstack/react-query";
-import ICONS from "../../../shared/icons";
+import { useState } from 'react';
+import axios from 'axios';
+import { useQuery } from '@tanstack/react-query';
+import ICONS from '../../../shared/icons';
+import Modal from '../../molecules/Modal/Modal';
+import TodoEditForm from '../../molecules/TodoEditForm/TodoEditForm';
 import {
   StyledTodoCard,
   StyledTodoTitle,
@@ -10,12 +12,13 @@ import {
   StyledTodoDescriptionSection,
   StyledTodoDescription,
   StyledTextButtons,
-  StyledDescriptionButtons, StyledActionButtons
-} from "./styles";
+  StyledDescriptionButtons,
+  StyledActionButtons,
+} from './styles';
 
 const TodoCard = () => {
-  const { data: todos, refetch } = useQuery(["todos"], async () => {
-    const { data } = await axios.get("http://localhost:8000/todos");
+  const { data: todos, refetch } = useQuery(['todos'], async () => {
+    const { data } = await axios.get('http://localhost:8000/todos');
     const currentUserId = parseInt(localStorage.userId);
     const filterTodos = data.filter((x) => x.userId === currentUserId);
 
@@ -24,10 +27,13 @@ const TodoCard = () => {
 
   const [expandedTodoId, setExpandedTodoId] = useState(null);
 
+  const [isFormOpen, setIsFormOpen] = useState(false);
+  const openForm = () => setIsFormOpen(true);
+  const closeForm = () => setIsFormOpen(false);
+
   const toggleAccordion = (id) => {
     setExpandedTodoId((prev) => (prev === id ? null : id));
   };
-
 
   const handleDelete = async (id) => {
     try {
@@ -41,7 +47,7 @@ const TodoCard = () => {
   const handleComplete = async (id) => {
     try {
       await axios.patch(`http://localhost:8000/todos/${id}`, {
-        status: 'Done'
+        status: 'Done',
       });
       refetch();
     } catch (error) {
@@ -72,9 +78,7 @@ const TodoCard = () => {
           <div onClick={() => toggleAccordion(todo.id)}>
             <StyledTodoTitleSection>
               <StyledTodoIcon>{getIcon(todo.status)}</StyledTodoIcon>
-              <StyledTodoTitle>
-                {todo.title}
-              </StyledTodoTitle>
+              <StyledTodoTitle>{todo.title}</StyledTodoTitle>
             </StyledTodoTitleSection>
           </div>
           <StyledTodoDescriptionSection>
@@ -83,13 +87,20 @@ const TodoCard = () => {
                 <StyledTextButtons>
                   <li>{todo.description}</li>
                   <StyledDescriptionButtons>
-                    <StyledActionButtons onClick={() => console.log("Update clicked")}>
+                    <StyledActionButtons onClick={openForm}>
                       {ICONS.edit}
                     </StyledActionButtons>
+                    {isFormOpen && (
+                      <Modal onClose={closeForm}>
+                        <TodoEditForm id={todo.id} closeModal={closeForm} />
+                      </Modal>
+                    )}
                     <StyledActionButtons onClick={() => handleDelete(todo.id)}>
                       {ICONS.delete}
                     </StyledActionButtons>
-                    <StyledActionButtons onClick={() => handleComplete(todo.id)}>
+                    <StyledActionButtons
+                      onClick={() => handleComplete(todo.id)}
+                    >
                       {ICONS.check}
                     </StyledActionButtons>
                   </StyledDescriptionButtons>
