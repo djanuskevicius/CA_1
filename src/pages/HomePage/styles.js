@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const StyledSection = styled.section`
   background-color: ${({ theme }) => theme.palette.purple.main};
@@ -25,6 +25,7 @@ export const StyledAboutAppButtons = styled.div`
 
 export const StyledAboutSignUpForm = styled.div`
   width: 100%;
+  color: ${({ theme }) => theme.palette.purple.white};
 
   @media screen and (max-width: 1024px) {
     display: none;
