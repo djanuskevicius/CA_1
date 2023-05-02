@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const StyledHeader = styled.div`
   width: 100%;
@@ -16,6 +16,7 @@ export const StyledLogo = styled.div`
   height: 46px;
   border-radius: 50%;
   object-fit: cover;
+  margin-left: 20px;
 
   img {
     width: 100%;
@@ -30,25 +31,17 @@ export const StyledSelector = styled.div`
 export const StyledContainer = styled.div`
   display: flex;
   gap: 10px;
+  margin-right: 20px;
 `;
 
 export const StyledHeaderButtons = styled.div`
-display: flex;
-gap: 10px;
+  display: flex;
+  gap: 10px;
 
-
-@media screen and (max-width:1024px) {
-   display: none;
-
-   
-   
- }
-
-`
+  @media screen and (max-width: 1024px) {
+    display: none;
+  }
+`;
 export const StyledSignUpButton = styled.div`
-
-display: none;
-
-
-
-`
+  display: none;
+`;

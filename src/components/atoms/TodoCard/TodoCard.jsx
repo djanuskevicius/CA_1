@@ -11,7 +11,7 @@ import {
   StyledTodoDescriptionSection,
   StyledTodoDescription,
   StyledTextButtons,
-  StyledDescriptionButtons,
+  StyledDescriptionButtons, StyledActionButtons
 } from "./styles";
 import Button from "../Button/index";
 
@@ -53,27 +53,29 @@ const TodoCard = () => {
     <div>
       {todos?.map((todo) => (
         <StyledTodoCard key={todo.id}>
-          <StyledTodoTitleSection>
-            <StyledTodoIcon>{getIcon(todo.status)}</StyledTodoIcon>
-            <StyledTodoTitle onClick={() => toggleAccordion(todo.id)}>
-              {todo.title}
-            </StyledTodoTitle>
-          </StyledTodoTitleSection>
+          <div onClick={() => toggleAccordion(todo.id)}>
+            <StyledTodoTitleSection>
+              <StyledTodoIcon>{getIcon(todo.status)}</StyledTodoIcon>
+              <StyledTodoTitle>
+                {todo.title}
+              </StyledTodoTitle>
+            </StyledTodoTitleSection>
+          </div>
           <StyledTodoDescriptionSection>
             {expandedTodoId === todo.id && (
               <StyledTodoDescription>
                 <StyledTextButtons>
                   <li>{todo.description}</li>
                   <StyledDescriptionButtons>
-                    <button onClick={() => console.log("Update clicked")}>
+                    <StyledActionButtons onClick={() => console.log("Update clicked")}>
                       {ICONS.edit}
-                    </button>
-                    <button onClick={() => handleDelete(todo.id)}>
+                    </StyledActionButtons>
+                    <StyledActionButtons onClick={() => handleDelete(todo.id)}>
                       {ICONS.delete}
-                    </button>
-                    <button onClick={() => console.log("Complete clicked")}>
+                    </StyledActionButtons>
+                    <StyledActionButtons onClick={() => console.log("Complete clicked")}>
                       {ICONS.check}
-                    </button>
+                    </StyledActionButtons>
                   </StyledDescriptionButtons>
                 </StyledTextButtons>
               </StyledTodoDescription>
