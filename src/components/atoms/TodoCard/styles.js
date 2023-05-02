@@ -53,6 +53,7 @@ export const StyledTodoCard = styled.div`
   }
 
   @media screen and (min-width: 1280px) {
+    min-width: 400px;
     max-width: 500px;
     width: 100%;
   }
