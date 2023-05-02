@@ -30,8 +30,8 @@ export const StyledTodosWrapper = styled.div`
   gap: 20px;
   padding: 10px;
 
-  @media screen and (min-width: 1000px) {
-    max-width: 1000px;
+  @media screen and (min-width: 1280px) {
+    max-width: 1280px;
     margin: 10px auto;
     width: 100%;
   }

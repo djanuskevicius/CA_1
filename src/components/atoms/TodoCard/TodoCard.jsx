@@ -14,6 +14,7 @@ import {
   StyledTextButtons,
   StyledDescriptionButtons,
   StyledActionButtons,
+  StyledTodoContainer,
 } from './styles';
 
 const TodoCard = () => {
@@ -72,7 +73,7 @@ const TodoCard = () => {
   };
 
   return (
-    <div>
+    <StyledTodoContainer>
       {todos?.map((todo) => (
         <StyledTodoCard key={todo.id}>
           <div onClick={() => toggleAccordion(todo.id)}>
@@ -110,7 +111,7 @@ const TodoCard = () => {
           </StyledTodoDescriptionSection>
         </StyledTodoCard>
       ))}
-    </div>
+    </StyledTodoContainer>
   );
 };
 

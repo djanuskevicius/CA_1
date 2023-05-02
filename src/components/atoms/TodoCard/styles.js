@@ -1,5 +1,39 @@
 import styled from 'styled-components';
 
+export const StyledTodoContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  max-height: 60vh;
+  width: 100%;
+  padding: 40px;
+  margin: auto;
+  background: transparent;
+
+  overflow: auto;
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: ${({ theme }) => theme.palette.purple.light};
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: ${({ theme }) => theme.palette.purple.semiDark};
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: fit-content;
+    gap: 20px;
+  }
+`;
+
 export const StyledTodoCard = styled.div`
   cursor: pointer;
   min-width: 280px;
@@ -15,10 +49,10 @@ export const StyledTodoCard = styled.div`
   }
 
   @media screen and (min-width: 768px) {
-    max-width: 950px;
+    max-width: 600px;
   }
 
-  @media screen and (min-width: 1000px) {
+  @media screen and (min-width: 1280px) {
     max-width: 500px;
     width: 100%;
   }
@@ -36,7 +70,7 @@ export const StyledTodoIcon = styled.div`
     font-size: 22px;
   }
 
-  @media screen and (min-width: 1000px) {
+  @media screen and (min-width: 1280px) {
     font-size: 25px;
   }
 `;
@@ -59,7 +93,7 @@ export const StyledTodoTitle = styled.h3`
     font-size: 30px;
   }
 
-  @media screen and (min-width: 1000px) {
+  @media screen and (min-width: 1280px) {
     font-size: 33px;
   }
 `;
