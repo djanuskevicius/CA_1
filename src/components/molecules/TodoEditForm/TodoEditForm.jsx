@@ -16,8 +16,8 @@ import { useQuery } from '@tanstack/react-query';
 
 const TodoEditForm = ({ id }) => {
   const { data: todos, refetch } = useQuery(['todos'], async () => {
-    const { data } = await axios.get('http://localhost:8000/todos');
-    return data;
+    const { data } = await axios.get(`http://localhost:8000/todos`);
+    return;
   });
 
   const [todo, setTodo] = useState({

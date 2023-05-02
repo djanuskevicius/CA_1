@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const StyledTodoContainer = styled.div`
   background-color: ${({ theme }) => theme.palette.purple.dark};
@@ -58,7 +58,7 @@ export const StyledButton = styled.div`
   justify-content: center;
   margin-top: 30px;
   button {
-    width: 30%;
+    width: fit-content;
   }
 `;
 
