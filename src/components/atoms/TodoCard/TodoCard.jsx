@@ -79,7 +79,9 @@ const TodoCard = () => {
           <div onClick={() => toggleAccordion(todo.id)}>
             <StyledTodoTitleSection>
               <StyledTodoIcon>{getIcon(todo.status)}</StyledTodoIcon>
-              <StyledTodoTitle>{todo.title}</StyledTodoTitle>
+              <StyledTodoTitle status={todo.status}>
+                {todo.title}
+              </StyledTodoTitle>
             </StyledTodoTitleSection>
           </div>
           <StyledTodoDescriptionSection>

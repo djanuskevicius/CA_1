@@ -85,6 +85,8 @@ export const StyledTodoTitleSection = styled.div`
 
 export const StyledTodoTitle = styled.h3`
   color: ${({ theme }) => theme.palette.purple.white};
+  text-decoration: ${(props) =>
+    props.status === ('Done' || 'Baigta') ? 'line-through' : 'none'};
 
   @media screen and (min-width: 600px) {
     font-size: 24px;
